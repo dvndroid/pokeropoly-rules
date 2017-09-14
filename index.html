@@ -1,60 +1,111 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
 <html>
-	<head>
-	  <style>	    
-	    .Metro
-	    {	       
-	       font-family: 'Segoe UI Light', 'Segoe UI', 'Verdana';
-	       font-weight: 100;
-	    }
-	    .MetroColor
-	    {
-	    	color: #707070;
-	    }
-	  </style>
-		<script src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script>
-		<script type="text/javascript">
-			YUI({
-				//Last Gallery Build of this module
-				gallery: 'gallery-2011.11.10-16-24'
-			})
-			YUI().use('gallery-yui-dualslider', function(Y) {
-				var eleYuiSlider = new Y.DualSlider({
-					id: 'SliderDev',
-					axis: 'x',
-					min: 0,
-					max: 10,
-					length: '300px'							
-				});
-				eleYuiSlider.after('slideEnd', function(e) {
-					var eleYuiSlider = e.currentTarget;
-					eleYuiSlider.syncUI();  			
-				});
-				eleYuiSlider.after(['valueChange', 'value2Change'], function(e) {
-					if (e.attrName == 'value2')
-						document.getElementById('slider2Value').innerHTML = e.newVal;						
-					else
-						document.getElementById('slider1Value').innerHTML = e.newVal;
-				});
-								
-				eleYuiSlider.render('body');
-				
-				eleYuiSlider.setValue(2);
-				eleYuiSlider.setValue2(6);
-			});			
-		</script>		
-		<link type="text/css" rel="stylesheet" href="gallery-yui-dualslider.css" />
+	<head>	
+	<style>
+	
+		body {
+			font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+		}
+	
+		.title-section {
+			display: flex;
+			border-bottom: 2px dotted #ccc;
+			flex-direction: column;
+			align-items: center;
+			color: #2f2f2f;
+		}
+		
+		.note {
+			color: #2f2f2f;
+		}
+		
+		.rules-section {
+			margin: 5px 40px;
+		}
+		
+		.title-logo {
+			display: flex;			
+		}
+	
+		h1 {			
+			
+		}
+		
+		.title-img-icon {
+			width: 50px;
+			height: 50px;
+			margin: 10px;
+		}
+	
+	</style>
+		
+	<title>Pokeropoly Rules</title>
 	</head>
-	<body class="yui3-skin-sam">
-		<h1 class="Metro MetroColor">Dual Slider Dev</h1>
-		<br/>
-		<table>
-			<tr>
-				<td class="Metro MetroColor">Thumb 1: </td><td class="Metro"><span id="slider1Value">[Null]</span></td>
-			<tr>
-			<tr>
-				<td class="Metro MetroColor">Thumb 2: </td><td class="Metro"><span id="slider2Value">[Null]</span></td>
-			<tr>
-		</table>
-		<br/>		
+	<body>
+		<div class="title-section" >
+			<div class="title-logo">
+				<img class="title-img-icon" src="images/cards_bw.jpg" />
+				<h1>Pokeropoly Rules</h1>
+				<img class="title-img-icon" src="images/monopoly-man.png" />
+			</div>
+		</div>
+		<div class="rules-section" >			
+			<span class="note" >[Standard Monopoly rules apply on initial play]</span>
+
+			<h2>Triggering Pokeropoly</h2>
+			<p>
+				In Pokeropoly, the Chance Cards are replaced with a a deck of playing cards.  All chance spaces on the board are replaced with Pokeropoly spaces.
+				When a player lands on a Pokeropoly space all players begin Texas Hold'em Pokeropoly.
+			</p>
+			<h2>Determining how many hands to play</h2>
+			<p>
+				Roll the Monopoly dice to determine how many hands of Pokeropoly will be played.
+				<!--The number of hands to play can be determined by the setting of which the players are playing
+				
+				<ul>
+					<li>Standard: Roll the Monopoly dice to determine how many hands of Pokeropoly will be played.</li>
+					<li>Tournament / Competitive: </li>					
+				</ul>-->
+			</p>
+			<h2>Playing Texas Hold'em Pokeropoly</h2>
+			<span>[Standard Texas Hold'em rules apply]</span>
+			<p>
+				Begin playing Texas Hold'em.  Players will bet / big blind & little blind with their Monopoly cash.
+			</p>
+			<h2>Betting Properties</h2>
+			<p>
+				The most exciting part of Pokeropoly is the ability to wager a Monopoly Property (<b>this includes Railroads and Utilities</b>).				
+				<ul>
+					<li>
+						<h3>Wagering a property</h3>
+						<p>
+							All players that have <b>not folded</b> must have at least one property in order to be able to wager a property.  
+							Only <b>one</b> property betting round per hand is permitted in Texas Hold'em Pokeropoly.
+						</p>
+					</li>
+					<li>
+						<h3>Calling a property wager</h3>
+						<p>
+							A player may only call property wager by wagering one of their own properties.  Properties have varying values.  
+							Therefore; if a player calls another players property wager with a lesser value property, they will need to also wager the cash
+							difference between the <b>purchase price</b> of the highest wagered property.  Wagering a property with a greater value is 
+							considered as a call and raise.
+						</p>
+					</li>
+					<li>
+						<h3>Wagering / Calling when a property has a houses / hotel</h3>
+						<p>
+							Houses and hotels can be wagered at their <b>purchase price</b>.  If a property has been wagered, a player with houses / hotel 
+							on their properties can use the houses / hotel to call without wagering a property itself.  The player must wager houses / hotel
+							until the <b>purchase price</b> of the highest wagered property is met or exceeded.  If the player runs out of houses / hotel they can 
+							complete the call with cash. Houses / hotels won in poker hands may be placed on owned properties <b>with / without</b> a Monopoly
+							being established. Hotels lost in poker hands played <b>do not</b> restore houses.
+						</p>
+						<span>[All In: Only <b>one</b> property can be wagered per hand; therefore "all in" means mortgaging all remaining properties]</span>
+					</li>
+				</ul>
+			</p>
+		</div>
 	</body>
 </html>
